@@ -133,9 +133,9 @@
                             <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Pesanan Saya</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{url('/user')}}">Keranjang</a></li>
-                            <li><a href="{{url('/jenis')}}">Data Jenis Barang</a></li>
-                            <li><a href="{{url('/barang')}}">Data Barang</a></li>
+                            <li><a href="#">Keranjang</a></li>
+                            <li><a href="#">Order</a></li>
+
 
                         </ul>
                     </li>
