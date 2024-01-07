@@ -88,13 +88,18 @@
 
                                         <hr class="my-2">
 
-                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"
-                            >Logout</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                            </form></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#" onclick="event.preventDefault();
+                            document.getElementById('profile-form').submit();">Settings</a>
+                                            <form id="profile-form" action="#" method="POST">
+                                                @csrf
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -111,7 +116,7 @@
             Sidebar start
         ***********************************-->
         @php
-            $user = auth()->user();
+        $user = auth()->user();
         @endphp
         <div class="nk-sidebar">
             <div class="nk-nav-scroll">
@@ -123,12 +128,25 @@
                         </a>
                     </li>
                     @if($user->role == 'admin')
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Pesanan Saya</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{url('/user')}}">Keranjang</a></li>
+                            <li><a href="{{url('/jenis')}}">Data Jenis Barang</a></li>
+                            <li><a href="{{url('/barang')}}">Data Barang</a></li>
+
+                        </ul>
+                    </li>
+                    @endif
+                    @if($user->role == 'admin')
                     <li class="nav-label">UI Components</li>
                     <li>
                         <a href="{{url('/diskon')}}" aria-expanded="false">
                             <i class="icon-badge menu-icon"></i><span class="nav-text">Setting Diskon</span>
                         </a>
-                    </li>   
+                    </li>
                     @endif
                     @if($user->role == 'admin')
                     <li class="mega-menu mega-menu-sm">
@@ -179,41 +197,41 @@
             <!-- row -->
 
             @yield('content')
-        <!--**********************************
+            <!--**********************************
             Content body end
         ***********************************-->
 
 
-        <!--**********************************
+            <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="#">Quixlab</a> 2018</p>
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright &copy; Designed & Developed by <a href="#">Quixlab</a> 2018</p>
+                </div>
             </div>
-        </div>
-        <!--**********************************
+            <!--**********************************
             Footer end
         ***********************************-->
-    </div>
-    <!--**********************************
+        </div>
+        <!--**********************************
         Main wrapper end
     ***********************************-->
 
-    <!--**********************************
+        <!--**********************************
         Scripts
     ***********************************-->
-    <script src="/assets/plugins/common/common.min.js"></script>
-    <script src="/assets/js/custom.min.js"></script>
-    <script src="/assets/js/settings.js"></script>
-    <script src="/assets/js/gleek.js"></script>
-    <script src="/assets/js/styleSwitcher.js"></script>
+        <script src="/assets/plugins/common/common.min.js"></script>
+        <script src="/assets/js/custom.min.js"></script>
+        <script src="/assets/js/settings.js"></script>
+        <script src="/assets/js/gleek.js"></script>
+        <script src="/assets/js/styleSwitcher.js"></script>
 
-    <script src="/assets/plugins/tables/js/jquery.dataTables.min.js"></script>
-    <script src="/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
-    <script src="/assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
-    @stack('script')
-    @show
+        <script src="/assets/plugins/tables/js/jquery.dataTables.min.js"></script>
+        <script src="/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+        <script src="/assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+        @stack('script')
+        @show
 </body>
 
 </html>
