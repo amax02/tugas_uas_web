@@ -26,7 +26,7 @@ use App\Http\Controllers\DiskonController;
 
 //login
 Route::get('/', [HomeController::class, 'index', ''])->name('dashboard');
-Route::controller(LoginRegisterController::class)->group(function(){
+Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
@@ -34,7 +34,7 @@ Route::controller(LoginRegisterController::class)->group(function(){
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::controller(BarangController::class)->group(function(){
+Route::controller(BarangController::class)->group(function () {
     Route::get('/barang', 'index')->name('barang');
     Route::post('/barang/tambah', 'tambah')->name('barang.tambah');
     Route::post('/barang/update', 'update')->name('barang.update');
@@ -43,7 +43,7 @@ Route::controller(BarangController::class)->group(function(){
     Route::get('/barang/list', 'list')->name('barang.list');
 });
 
-Route::controller(JenisBarangController::class)->group(function(){
+Route::controller(JenisBarangController::class)->group(function () {
     Route::get('/jenis', 'index')->name('jenis');
     Route::post('/jenis/tambah', 'tambah')->name('jenis.tambah');
     Route::post('/jenis/update', 'update')->name('jenis.update');
@@ -52,7 +52,7 @@ Route::controller(JenisBarangController::class)->group(function(){
     Route::get('/jenis/list', 'list')->name('jenis.list');
 });
 
-Route::controller(UserController::class)->group(function(){
+Route::controller(UserController::class)->group(function () {
     Route::get('/user', 'index')->name('user');
     Route::post('/user/tambah', 'tambah')->name('user.tambah');
     Route::post('/user/update', 'update')->name('user.update');
@@ -61,7 +61,7 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/user/list', 'list')->name('user.list');
 });
 
-Route::controller(TransaksiController::class)->group(function(){
+Route::controller(TransaksiController::class)->group(function () {
     Route::get('/transaksi', 'index')->name('transaksi');
     Route::post('/transaksi/tambah', 'tambah')->name('transaksi.tambah');
     Route::post('/transaksi/update', 'update')->name('transaksi.update');
@@ -70,7 +70,7 @@ Route::controller(TransaksiController::class)->group(function(){
     Route::get('/transaksi/list', 'list')->name('transaksi.list');
 });
 
-Route::controller(DiskonController::class)->group(function(){
+Route::controller(DiskonController::class)->group(function () {
     Route::get('/diskon', 'index')->name('diskon');
     Route::post('/diskon/tambah', 'tambah')->name('diskon.tambah');
     Route::post('/diskon/update', 'update')->name('diskon.update');
