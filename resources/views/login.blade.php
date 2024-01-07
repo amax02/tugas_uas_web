@@ -44,15 +44,32 @@
                                     <h4>Silahkan Login</h4>
                                 </a>
 
-                                <form class="mt-5 mb-5 login-input" method="POST" action="">
+                                 <form action="{{ route('authenticate') }}" method="post">
                                     @csrf
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                    <div class="mb-3 ">
+                                        <label for="email" class=" col-form-label text-md-end text-start">Email Address</label>
+                                        <div class="">
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                                            @if ($errors->has('email'))
+                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                    <div class="mb-3 ">
+                                        <label for="password" class=" col-form-label text-md-end text-start">Password</label>
+                                        <div class="">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                                            @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
+                                    <div class="mb-3 ">
+                                        <input type="submit" class=" offset-md-5 btn btn-primary" value="Login">
+                                    </div>
+
+                                    <p class="mt-5 login-form__footer">Don't Have account <a href="{{url('/register')}}" class="text-primary">Regiaster </a> now</p>
+                                    
                                 </form>
 
                             </div>

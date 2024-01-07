@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -14,8 +15,11 @@ class HomeController extends Controller
             'title' => 'Home Page'
         );
 
-        return view('index', $data);
-        //return view('home', $data);
-        //return view('register', $data);
+        if(Auth::check()){
+            return view('home', $data);
+        }
+
+        return view('login', $data);
+
     }
 }
